@@ -8,7 +8,7 @@ module ModalHelper
   def modal_dialog(options = {}, &block)
     default_options.merge!(options)
     content_tag :div, :class => "bootstrap-modal modal fade", :id => options[:id] do
-      content_tag :div, :class => "modal-dialog "  + (!options[:size].nil? ? options[:size] : '') do
+      content_tag :div, :class => "modal-dialog " + (!options[:size].nil? ? options[:size] : ''), :style => options[:style] do
         content_tag :div, :class => "modal-content" do
           modal_header(options[:header].merge(:id => options[:id]), &block) +
           modal_body(options[:body].merge(:id => options[:id]), &block) +
